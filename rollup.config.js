@@ -84,6 +84,7 @@ export default async () => {
     }),
 
     // Browser CJS bundle
+    // dfgong Browser CJS 与 Node.js commonjs 是不同的，Browser CJS是在浏览器中加载一段模块加载器实现的，Node.js commonjs原生支持
     ...buildConfig({
       input: defaultInput,
       es5: false,
