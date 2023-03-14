@@ -1,3 +1,5 @@
+[//]: # (dfgong 一个独立的模块就可以安排一个说明文件，说明功能用途、注意点、使用示例)
+
 # axios // adapters
 
 The modules under `adapters/` are modules that handle dispatching a request and settling a returned `Promise` once a response is received.
