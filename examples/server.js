@@ -86,6 +86,10 @@ server = http.createServer(function (req, res) {
     pipeFileToResponse(res, '../dist/axios.min.js', 'text/javascript');
     return;
   }
+  if (/axios\.min\.js\.map$/.test(url)) {
+    pipeFileToResponse(res, '../dist/axios.min.js.map', 'text/javascript');
+    return;
+  }
   if (/axios\.min\.map$/.test(url)) {
     pipeFileToResponse(res, '../dist/axios.min.map', 'text/javascript');
     return;
@@ -128,7 +132,8 @@ server = http.createServer(function (req, res) {
   // Process server request
   else if (new RegExp('(' + dirs.join('|') + ')\/server').test(url)) {
     if (fs.existsSync(path.join(__dirname, url + '.js'))) {
-      require(path.join(__dirname, url + '.js'))(req, res);
+      // require(path.join(__dirname, url + '.js'))(req, res);
+      send404(res);
     } else {
       send404(res);
     }
