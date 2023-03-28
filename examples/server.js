@@ -133,7 +133,7 @@ server = http.createServer(function (req, res) {
   else if (new RegExp('(' + dirs.join('|') + ')\/server').test(url)) {
     if (fs.existsSync(path.join(__dirname, url + '.js'))) {
       // require(path.join(__dirname, url + '.js'))(req, res);
-      send404(res);
+      send200(res, new Buffer('111'));
     } else {
       send404(res);
     }
